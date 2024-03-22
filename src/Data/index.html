@@ -52,16 +52,16 @@
     <div class="SummaryTop10">
         <h1>Top 10</h1>
         <p class="Summary">
-            <a href="">10. Server-Side Request Forgery</a><br>
-            <a href="">9. Security Logging and Monitoring Failures</a><br>
-            <a href="">8. Software and Data Integrity Failures</a><br>
-            <a href="">7. Identification and Authentication Failures</a><br>
-            <a href="">6. Vulnerable and Outdated Components</a><br>
-            <a href="">5. Security Misconfiguration</a><br>
-            <a href="">4. Insecure Design</a><br>
-            <a href="">3. Injection</a><br>
-            <a href="">2. Cryptographic failures</a><br>
-            <a href="">1. Broken Access Control</a>
+            <a href="link to chapter">10. Server-Side Request Forgery</a><br>
+            <a href="link to chapter">9. Security Logging and Monitoring Failures</a><br>
+            <a href="link to chapter">8. Software and Data Integrity Failures</a><br>
+            <a href="link to chapter">7. Identification and Authentication Failures</a><br>
+            <a href="link to chapter">6. Vulnerable and Outdated Components</a><br>
+            <a href="link to chapter">5. Security Misconfiguration</a><br>
+            <a href="link to chapter">4. Insecure Design</a><br>
+            <a href="link to chapter">3. Injection</a><br>
+            <a href="link to chapter">2. Cryptographic failures</a><br>
+            <a href="link to chapter">1. Broken Access Control</a>
         </p>
     </div>
     <div id="activity2">
@@ -76,7 +76,7 @@
         <div class="responsesActivity2">
             <h1>Réponses de l'activité</h1>
             <p class="response">
-                Broken Access Control : Mauvaise Gestion des contrôles(...) autorisés à modifier.<br>
+                Broken Access Control : Mauvaise Gestion des contrôles (...) autorisés à modifier.<br>
                 Cryptographic Failures : Erreurs dans la mise en oeuvre de techniques (...) du chiffrement.<br>
                 Injection : Vulnérabilités qui permettant à un (...) données sensible.<br>
                 Insecure Design : Vulnérabilités résultant de conceptions (...) sécurité appropriés.<br>
@@ -89,15 +89,166 @@
             </p>
         </div>
     </div>
-    <div class="riskTop10"></div>
-    <div class="riskTop9"></div>
-    <div class="riskTop8"></div>
-    <div class="riskTop7"></div>
-    <div class="riskTop6"></div>
-    <div class="riskTop5"></div>
-    <div class="riskTop4"></div>
-    <div class="riskTop3"></div>
-    <div class="riskTop2"></div>
-    <div class="riskTop1"></div>
+    <div class="riskTop10">
+        <h1>Falsification des requêtes de serveur</h1>
+        <ul>
+            <li>SSRF permet à l'attaquant de contraindre l'application d'envoyer une requête à une destination inattendue</li>
+            <li>Cela permet à l'attaquer de se faire passer pour le serveur victime et atteindre des API internes, des base de données.</li>
+            <li>SSRF se produit lorsqu'un serveur veut atteindre des ressources externes, une image par exemple</li>
+            <li>Solutions :</li>
+            <ul>
+                <li>Only-allowed ou not-allowed liste doit être appliquée</li>
+                <li>Webapps sont vulnérables aux attaques SSRF</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="riskTop9">
+        <h1>Echec des logs de sécurité et de surveillance</h1>
+        <ul>
+            <li>Selon OWASP</li>
+            <ul>
+                <li>Sans journalisation/logging et surveillance/monitoring, les fails ne peuvent pas être détectées</li>
+            </ul>
+            <li>Les problèmes de sécurité sont inévitables</li>
+            <li>Mais :</li>
+            <ul>
+                <li>Hacker un système prend du temps, ce n'est pas Matrix ou Mr Robot</li>
+                <li>Il faut un certain nombres d'étapes</li>
+            </ul>
+            <li>Journaliser et surveiller nous permet de stopper l'attaque</li>
+            <li>Exemples</li>
+            <ul>
+                <li>Qui a consulté ou téléchargé un fichier spécifique ?</li>
+                <li>Y a-t-il eu des tentatives d'authentification incorrectes</li>
+                <li>Qui s'est connecté récemment</li>
+            </ul>
+            <li>Solutions</li>
+            <ul>
+                <li>Log, surveillance et alertes</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="riskTop8">
+        <h1>Défaillance des logiciels et de l'Integrité de leurs données</h1>
+        <ul>
+            <li>Selon OWASP</li>
+            <ul>
+                <li>CI/CD non sécurisée : automatisation des processus sans processus de vérifications suffisant</li>
+                <li>Mise à jour /téléchargement de composant automatique</li>
+            </ul>
+            <li>Lié au 6ème point! Mais différent pour souligner et mettre en avant les risques dans le développement de l'application</li>
+            <li>Analogie de la fabrication de chocolat</li>
+            <ul>
+                <li>Si les ingrédients sont bon, le chocolat est bon</li>
+                <li>Mais si les ingrédients sont muavais ? </li>
+            </ul>
+            <li>Dans un webapp, quels sont les ingrédients</li>
+            <li>Autre problème</li>
+            <ul>
+                <li>Si une mise à jour d'un logiciel externe est buggée ? </li>
+            </ul>
+        </ul>
+    </div>
+    <div class="riskTop7">
+        <h1>Echec d'Identification ou d'authentification</h1>
+        <ul>
+            <li>Une webapp doit confirmer qui vous êtes et qui vous prétendez être</li>
+            <li>Problèmes</li>
+            <ul>
+                <li>Une webapp ne vérifie pas que l'identité est corretce</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="riskTop6">
+        <h1>Composant vulnérables et obsolètes</h1>
+        <ul>
+            <li>Selon OWASP</li>
+            <ul>
+                <li>Votre application est vulnérable si vous ne connaissez pas toutes les versions de vos composants et s'ils sont vulnérables ou dépassés</li>
+            </ul>
+            <li>Webapp composée de nombreuses modules et librairies open-source</li>
+            <li>Mettre à jour des composant coûtent du temps</li>
+            <li>Dans les grnades entreprises, la mise à jour d'un composant doit être acceptée par plusieurs personnes / équipes / départments</li>
+            <li>Solution</li>
+            <ul>
+                <li>Connaitre l'état de vos applications, framework et librairies</li>
+                <li>Connaître leur versions, vulnérables ou pas</li>
+                <li>Tester pro activement</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="riskTop5">
+        <h1>Mauvaise configuration de sécurité</h1>
+        <ul>
+            <li>Vulnérabilité liée :</li>
+            <ul>
+                <li>à l'absence de hardening, focntionnalités, inutiles ou inactives</li>
+                <li>Comptes et mots de passes par défaut</li>
+                <li>Erreurs de stack toujours affichés en production</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="riskTop4">
+        <h1>Conception non-sécurisée</h1>
+        <ul>
+            <li>Vulnérabilité liée à la non-prise en considération des principes de sécurité dès les premières étapes de la conception de l'application</li>
+            <li>Analogie avec la vie de tout les jours :</li>
+            <ul>
+                <li>Un constructeur automobile n'a pas pris en compte le fait que la ceinture de sécurité devait résister à un choc de plus de 1000N</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="riskTop3">
+        <h1>Injection</h1>
+        <ul>
+            <li>Une vulnérabilité qui permet à un attaquant de relayer du code malveillant via une application vers un autre système.</li>
+            <li>Cela peut inclure la compromission des systèmes back-end ainsi que d'autres clients connectés à l'application vulnérables</li>
+            <li>Effets : </li>
+            <ul>
+                <li>Permettre à un attaquant d'éxécuter des appels du système d'exploitation sur une machine cible</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="riskTop2">
+        <h1>Défaillances cryptographique</h1>
+        <ul>
+            <li>Vulnérabilité liée à l'absence ou à un mauvais chiffrement des données</li>
+            <li>Est-ce que les données sensibles sont en clair dans le stockage ? </li>
+            <li>Est-ce que les fonctions de hachages sont sûres ? </li>
+            <ul>
+                <li>Risques de collision ? </li>
+            </ul>
+            <li>Esr-ce que l'aléatoire est vraiment aléatoire ? </li>
+        </ul>
+    </div>
+    <div class="riskTop1">
+        <h1>Controle d'accès défaillant</h1>
+        <ul>
+            <li>Un contrôle d'accès est défaillant lorsque des utilisateurs accèdent à des informations qui ne leur est pas déstinée</li>
+            <li>Par exemple :</li>
+            <ul>
+                <li>Un document est imprimé et est visible de tous</li>
+                <li>Un e-mail est envoyé au mauvais destinataire</li>
+            </ul>
+        </ul>
+    </div>
+    <div id="activity3">
+        <div class="rulesActivity3">
+            <h1>Regles de l'activité</h1>
+            <ul>
+                <li>Travail en groupe de deux sur un risque donnée du top 10</li>
+                <li>A partir du site OWASP</li>
+                <li>Prener un CWE liée à votre risque et compléter la présentation</li>
+                <li>Produire :</li>
+                <ul>
+                    <li>Un document synthétique basé sur les modéles "E-183-ALL-OWASP-RisqueN.pptx"</li>
+                    <li>Vous renommer le document (RisqueN sera remplacé par le <strong>nom du risque traité</strong>)</li>
+                    <li>présentation à laisser dans Teams</li>
+                </ul>
+                <li>Temps à disposition : 30 mn</li>
+                <li>Rendu : présentation à la classe (5-7 mn max / risque)</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
